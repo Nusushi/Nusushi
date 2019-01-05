@@ -1,0 +1,82 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+	<TypeScriptToolsVersion>2.9</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="node_modules\**" />
+    <EmbeddedResource Remove="node_modules\**" />
+    <None Remove="node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nusushi\Nusushi.csproj" />
+    <ProjectReference Include="..\Tokyo.Service\Tokyo.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Typewriter\CreateTimeStampPostViewModel.ts">
+      <CustomToolNamespace>..\Nusushi\Models\TokyoViewModels\CreateTimeStampPostViewModel.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\EditTimeStampPostViewModel.ts">
+      <CustomToolNamespace>..\Nusushi\Models\TokyoViewModels\EditTimeStampPostViewModel.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\Plot.ts">
+      <CustomToolNamespace>..\Tokyo.Service\Models\Core\Plot.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\ProductivityRating.ts">
+      <CustomToolNamespace>..\Tokyo.Service\Models\Core\ProductivityRating.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\SharedTimeTableInfo.ts">
+      <CustomToolNamespace>..\Tokyo.Service\Models\Core\SharedTimeTableInfo.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\TimeNorm.ts">
+      <CustomToolNamespace>..\Tokyo.Service\Models\Core\TimeNorm.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\TimeNormTag.ts">
+      <CustomToolNamespace>..\Tokyo.Service\Models\Core\TimeNormTag.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\TimeNormTagMapping.ts">
+      <CustomToolNamespace>..\Tokyo.Service\Models\Core\TimeNormTagMapping.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\TimeRange.ts">
+      <CustomToolNamespace>..\Tokyo.Service\Models\Core\TimeRange.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\TimeStamp.ts">
+      <CustomToolNamespace>..\Tokyo.Service\Models\Core\TimeStamp.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\TimeTable.ts">
+      <CustomToolNamespace>..\Tokyo.Service\Models\Core\TimeTable.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\TimeTableViewModel.ts">
+      <CustomToolNamespace>..\Tokyo.Service\Models\Core\TimeTableViewModel.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\TokyoController.ts">
+      <CustomToolNamespace>..\Nusushi\Controllers\TokyoController.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\TrackerClientFlag.ts">
+      <CustomToolNamespace>..\Tokyo.Service\Models\Core\TrackerClientFlag.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\TrackerClientViewModel.ts">
+      <CustomToolNamespace>..\Tokyo.Service\Models\Core\TrackerClientViewModel.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\TrackerCultureInfo.ts">
+      <CustomToolNamespace>..\Tokyo.Service\Models\Core\TrackerCultureInfo.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\TrackerEvent.ts">
+      <CustomToolNamespace>..\Tokyo.Service\Models\Core\TrackerEvent.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\TrackerTimeZone.ts">
+      <CustomToolNamespace>..\Tokyo.Service\Models\Core\TrackerTimeZone.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\TrackerUserDefaults.ts">
+      <CustomToolNamespace>..\Tokyo.Service\Models\Core\TrackerUserDefaults.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\WorkUnit.ts">
+      <CustomToolNamespace>..\Tokyo.Service\Models\Core\WorkUnit.cs</CustomToolNamespace>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,14 @@
+﻿@using California.Creator.Service.Models.Core
+@using static Nusushi.Controllers.CaliforniaController
+@model LayoutRow
+@{
+    var interactionIdString = (ViewData[InteractionLayoutIdsToken] as IEnumerable<int>).Contains(Model.LayoutBaseId) ? $"id=\"t{Model.LayoutBaseId}\"" : "";
+    var currentSelection = ViewData[CaliforniaSelectionOverlayToken] as CaliforniaSelectionOverlay;
+    var styleMoleculeCssClasses = currentSelection.StyleMoleculeCssClassMapping.ContainsKey(Model.StyleMolecule.StyleMoleculeId) ? string.Join(" ", currentSelection.StyleMoleculeCssClassMapping[Model.StyleMolecule.StyleMoleculeId]) : "";
+}
+<div @Html.Raw(interactionIdString) class="@styleMoleculeCssClasses">
+    @foreach (var layoutBox in Model.AllBoxesBelowRow.Where(b => b.PlacedBoxInBoxId == null).OrderBy(r => r.LayoutSortOrderKey))
+    {
+        @await Html.PartialAsync(nameof(LayoutBox), layoutBox)
+    }
+</div>

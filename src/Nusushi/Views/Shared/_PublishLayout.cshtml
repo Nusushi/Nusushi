@@ -1,0 +1,86 @@
+﻿@using static Nusushi.Controllers.CaliforniaController
+@{
+    var domainTitle = "ヌスシ.com"; // TODO set in nusushi app options
+    var pageTitle = domainTitle;
+    var currentPageTitle = ViewData["Title"] as string;
+    var userId = ViewData[UserIdForManualRenderToken] as string;
+    if (!string.IsNullOrEmpty(currentPageTitle))
+    {
+        pageTitle += $" - {currentPageTitle}";
+    }
+    var backgroundProperty = ViewData["LayoutBackgroundCssValue"] as string;
+    var htmlStyleClassName = ViewData["HtmlStyleClassName"] as string;
+    var bodyStyleClassName = ViewData["BodyStyleClassName"] as string;
+    var inlineCss = ViewData[InlineCssToken] as string;
+}
+<!DOCTYPE html>
+<html class="@(htmlStyleClassName)">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@pageTitle - DEMO - &copy;ヌスシ - &copy;Project Owner - @DateTime.UtcNow.Year</title>
+    @if(!string.IsNullOrEmpty(inlineCss)) {
+        <style type="text/css">@Html.Raw(inlineCss)</style>
+    }
+</head>
+<body class="@(bodyStyleClassName)" style="display:flex;margin:0;background-color:@(backgroundProperty)">
+    @RenderBody()
+    @RenderSection("Footer", required: false)
+    @RenderSection("Scripts", required: false)
+    @if (string.IsNullOrEmpty(inlineCss))
+    {
+        <link rel="stylesheet" href="~/california/@(userId)/pub.css" asp-append-version="true" />
+    }
+    @if ((ViewData[InteractionLayoutIdsToken] as IEnumerable<int>).Count() > 0)
+    {
+        <script src="~/california/@(userId)/pub.js"
+                asp-append-version="true">
+        </script>
+    }
+    <style>
+        @@font-face {
+            font-family: 'Source Sans Pro';
+            src: url(/assets/ac064e4ccb70dc3a2b5bd2d68b86428b.eot);
+            src: url(/assets/ac064e4ccb70dc3a2b5bd2d68b86428b.eot?#iefix&v=2.020) format("embedded-opentype"), url(/assets/0448fda3606e6dc571f763223e78861a.woff2) format("woff2"), url(/assets/090c51d750041a6da7041ad2f8510cb5.woff) format("woff"), url(/assets/d165cf1a72ee7db500ecfc9d7672a834.ttf) format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @@font-face {
+            font-family: 'Source Sans Pro';
+            src: url(/assets/804a5a72877fa3e658baefb5ecacf88c.eot);
+            src: url(/assets/804a5a72877fa3e658baefb5ecacf88c.eot?#iefix&v=2.020) format("embedded-opentype"), url(/assets/dc350a1320c8c455fce22a68938ce05b.woff2) format("woff2"), url(/assets/65972f6e425bb890dd10c46c7f5e0734.woff) format("woff"), url(/assets/61403c3297a48cfeaf13071038a555cd.ttf) format("truetype");
+            font-weight: normal;
+            font-style: italic;
+        }
+    </style>
+    @if ((ViewData[MathJaxContentInProjectToken] as bool?).Value == true)
+    {
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                (function () {
+                    var head = document.getElementsByTagName("head")[0], script;
+                    script = document.createElement("script");
+                    script.type = "text/x-mathjax-config";
+                    script.text =
+                        "MathJax.Hub.Config({\n" +
+                        "  root: \"/third_party/mathjax\",\n" +
+                        "  extensions: [\"tex2jax.js\"],\n" +
+                        "  jax: [\"input/TeX\", \"output/HTML-CSS\"],\n" +
+                        //"  skipStartupTypeset: false,\n" +
+                        //"  config: [\"TeX-AMS_HTML.js\"],\n" +
+                        "  tex2jax: { inlineMath: [['$','$'], ['\\\\(','\\\\)']], skipTags: [\"script\",\"noscript\",\"style\",\"textarea\",\"pre\",\"code\",\"input\"], processEscapes: true},\n" +
+                        "  TeX: { extensions: [\"AMSmath.js\", \"AMSsymbols.js\"], equationNumbers: { autoNumber: \"all\" } }, showProcessingMessages: false, messageStyle: \"none\",\n" +
+                        "  \"HTML-CSS\": { availableFonts: [\"TeX\"], preferredFont: \"TeX\", imageFont: null }\n" +
+                        "});";
+                    head.appendChild(script);
+                    script = document.createElement("script");
+                    script.type = "text/javascript";
+                    script.src = "/third_party/mathjax/MathJax.js";
+                    head.appendChild(script);
+                })();
+            });
+        </script>
+    }
+</body>
+</html>

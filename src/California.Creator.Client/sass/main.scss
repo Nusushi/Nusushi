@@ -1,0 +1,46 @@
+﻿@charset "utf-8";
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../third_party/source-sans-pro-2.020R-ro-1.075R-it/EOT/SourceSansPro-Regular.eot?v=2.020');
+    src: url('../third_party/source-sans-pro-2.020R-ro-1.075R-it/EOT/SourceSansPro-Regular.eot?#iefix&v=2.020') format('embedded-opentype'), url('../third_party/source-sans-pro-2.020R-ro-1.075R-it/WOFF2/OTF/SourceSansPro-Regular.otf.woff2?v=2.020') format('woff2'), url('../third_party/source-sans-pro-2.020R-ro-1.075R-it/WOFF/TTF/SourceSansPro-Regular.ttf.woff?v=2.020') format('woff'), url('../third_party/source-sans-pro-2.020R-ro-1.075R-it/TTF/SourceSansPro-Regular.ttf?v=2.020') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../third_party/source-sans-pro-2.020R-ro-1.075R-it/EOT/SourceSansPro-It.eot?v=2.020');
+    src: url('../third_party/source-sans-pro-2.020R-ro-1.075R-it/EOT/SourceSansPro-It.eot?#iefix&v=2.020') format('embedded-opentype'), url('../third_party/source-sans-pro-2.020R-ro-1.075R-it/WOFF2/OTF/SourceSansPro-It.otf.woff2?v=2.020') format('woff2'), url('../third_party/source-sans-pro-2.020R-ro-1.075R-it/WOFF/TTF/SourceSansPro-It.ttf.woff?v=2.020') format('woff'), url('../third_party/source-sans-pro-2.020R-ro-1.075R-it/TTF/SourceSansPro-It.ttf?v=2.020') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+body {
+    background-color: rgba(242, 242, 242, 0.7);
+    margin: 0;
+    display: flex;
+    // body height is overridden by client app such that it is always 100% on ipad (with and without browser controls)
+}
+
+// --- source: [Bootstrap Grid v4.0.0]
+
+@at-root {
+    @-ms-viewport {
+        width: device-width;
+    }
+    // stylelint-disable-line at-rule-no-vendor-prefix
+}
+
+html {
+    box-sizing: border-box;
+    -ms-overflow-style: scrollbar;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+// ---

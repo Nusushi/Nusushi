@@ -1,0 +1,121 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+	<TypeScriptToolsVersion>2.9</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="compiledts\**" />
+    <Compile Remove="node_modules\**" />
+    <EmbeddedResource Remove="compiledts\**" />
+    <EmbeddedResource Remove="node_modules\**" />
+    <None Remove="compiledts\**" />
+    <None Remove="node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\California.Creator.Service\California.Creator.Service.csproj" />
+    <ProjectReference Include="..\Nusushi\Nusushi.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Typewriter\CaliforniaClientPartialData.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\CaliforniaClientPartialData.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\CaliforniaClientViewModel.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\CaliforniaClientViewModel.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\CaliforniaController.ts">
+      <CustomToolNamespace>..\Nusushi\Controllers\CaliforniaController.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\CaliforniaEvent.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\CaliforniaEvent.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\CaliforniaProject.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\CaliforniaProject.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\CaliforniaSelectionOverlay.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\CaliforniaSelectionOverlay.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\CaliforniaUserDefaults.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\CaliforniaUserDefaults.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\CaliforniaView.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\CaliforniaView.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\ContentAtom.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\ContentAtom.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\ContentAtomType.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\ContentAtomType.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\LayoutAtom.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\LayoutAtom.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\LayoutBase.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\LayoutBase.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\LayoutBox.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\LayoutBox.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\LayoutRow.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\LayoutRow.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\LayoutStyleInteraction.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\LayoutStyleInteraction.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\LayoutStyleInteractionType.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\LayoutStyleInteractionType.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\LayoutType.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\LayoutType.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\MagicRowType.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\MagicRowType.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\PictureContent.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\PictureContent.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\QueryViewLayoutBoxMapping.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\QueryViewLayoutBoxMapping.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\ResponsiveDevice.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\ResponsiveDevice.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\SharedProjectInfo.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\SharedProjectInfo.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\SpecialLayoutBoxType.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\SpecialLayoutBoxType.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\StyleAtom.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\StyleAtom.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\StyleAtomQuantumMapping.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\StyleAtomQuantumMapping.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\StyleAtomType.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\StyleAtomType.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\StyleMolecule.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\StyleMolecule.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\StyleMoleculeAtomMapping.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\StyleMoleculeAtomMapping.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\StyleQuantum.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\StyleQuantum.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\StyleValue.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\StyleValue.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\StyleValueInteractionMapping.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\StyleValueInteractionMapping.cs</CustomToolNamespace>
+    </None>
+    <None Update="Typewriter\Webfont.ts">
+      <CustomToolNamespace>..\California.Creator.Service\Models\Core\Webfont.cs</CustomToolNamespace>
+    </None>
+  </ItemGroup>
+
+</Project>

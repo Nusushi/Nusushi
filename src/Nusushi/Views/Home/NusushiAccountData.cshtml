@@ -1,0 +1,23 @@
+﻿@using Tokyo.Service.Models
+@using California.Creator.Service.Models
+@model NusushiAccountData
+<p>
+    @Model.NusushiUserId - Tokyo
+    @if (@Model.TokyoUserId != null)
+    {
+        <a style="@(Model.TimeStampCount % 2 == 1 ? "background-color:red" : "")" role="link" asp-route="@TrackerRoutes.TrackerBrowserRoute" asp-route-id="@Model.TokyoUserId">@Model.TokyoDescription</a>
+    }
+    else
+    {
+        <span>N/A</span>
+    }
+    -California
+    @if (@Model.CaliforniaUserId != null)
+    {
+        <a role="link" asp-route="@CaliforniaRoutes.CaliforniaBrowserRoute" asp-route-id="@Model.CaliforniaUserId">@Model.CaliforniaDescription</a>
+    }
+    else
+    {
+        <span>N/A</span>
+    }
+</p>

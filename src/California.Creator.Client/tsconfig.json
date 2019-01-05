@@ -1,0 +1,37 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "jsx": "preserve",
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noEmitOnError": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    //"noUnusedLocals": true, TODO
+    //"noUnusedParameters": true, TODO
+    "sourceMap": true,
+    "target": "es5",
+    "lib": [
+      "es2015",
+      "es5",
+      "dom"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "./compiledts"
+  },
+  "files": [
+    "./site.tsx"
+  ],
+  "include": [
+    "./Typewriter/*.ts",
+    "./Models/*.ts*",
+    "./ViewModels/*.ts*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

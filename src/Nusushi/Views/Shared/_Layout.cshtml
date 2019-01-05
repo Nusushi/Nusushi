@@ -1,0 +1,23 @@
+﻿@{ 
+    var domainTitle = "ヌスシ.com"; // TODO set in nusushi app options
+    var pageTitle = domainTitle;
+    var currentPageTitle = ViewData["Title"] as string;
+    if (!string.IsNullOrEmpty(currentPageTitle))
+    {
+        pageTitle += $" - {currentPageTitle}";
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@pageTitle - DEMO - &copy;ヌスシ @DateTime.UtcNow.Year</title>
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    @RenderBody()
+    @RenderSection("Footer", required: false)
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

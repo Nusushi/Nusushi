@@ -1,0 +1,35 @@
+﻿@using California.Creator.Service.Models.Core
+@using California.Creator.Service.Extensions
+@using static Nusushi.Controllers.CaliforniaController
+@using static California.Creator.Service.Extensions.CaliforniaServiceExtensions
+@{
+    // 
+    var californiaProject = ViewData[OptimizedProjectToken] as CaliforniaProject;
+    // Publish project requires razor view template engine, supply optimized california project
+    ViewData["Title"] = "California - #" + californiaProject.CaliforniaProjectId + " (pub)";
+    Layout = "_PublishLayout";
+
+    // TODO fix data californiaProject / magic string constants
+    var viewName = ViewData[TargetCaliforniaViewToken] as string;
+    var targetView = californiaProject.CaliforniaViews.First(v => v.Name == viewName);
+    // TODO code duplication with special style holder retrieval from backend
+    var specialStyleHolderLayout = (californiaProject.LayoutMolecules.First(l => l.StyleMolecule.Name == GetStyleMoleculeNameForViewOfCaliforniaView(targetView.Name)));
+    var targetViewStyle = (californiaProject.StyleMolecules.First(s => s.StyleForLayoutId == specialStyleHolderLayout.LayoutBaseId)) as StyleMolecule;
+
+    var specialStyleHolderLayoutHtml = (californiaProject.LayoutMolecules.First(l => l.StyleMolecule.Name == GetStyleMoleculeNameForHtmlOfCaliforniaView(targetView.Name)));
+    var targetHtmlViewStyle = (californiaProject.StyleMolecules.First(s => s.StyleForLayoutId == specialStyleHolderLayoutHtml.LayoutBaseId)) as StyleMolecule;
+    var specialStyleHolderLayoutBody = (californiaProject.LayoutMolecules.First(l => l.StyleMolecule.Name == GetStyleMoleculeNameForBodyOfCaliforniaView(targetView.Name)));
+    var targetBodyViewStyle = (californiaProject.StyleMolecules.First(s => s.StyleForLayoutId == specialStyleHolderLayoutBody.LayoutBaseId)) as StyleMolecule;
+
+    var currentSelection = ViewData[CaliforniaSelectionOverlayToken] as CaliforniaSelectionOverlay;
+    ViewData["HtmlStyleClassName"] = currentSelection.StyleMoleculeCssClassMapping.ContainsKey(targetHtmlViewStyle.StyleMoleculeId) ? string.Join(" ", currentSelection.StyleMoleculeCssClassMapping[targetHtmlViewStyle.StyleMoleculeId]) : "";
+    ViewData["BodyStyleClassName"] = currentSelection.StyleMoleculeCssClassMapping.ContainsKey(targetBodyViewStyle.StyleMoleculeId) ? string.Join(" ", currentSelection.StyleMoleculeCssClassMapping[targetBodyViewStyle.StyleMoleculeId]) : "";
+    ViewData["LayoutBackgroundCssValue"] = targetViewStyle.MappedStyleAtoms.FirstOrDefault(map => map.StyleAtom.StyleAtomType == StyleAtomType.Background)?.StyleAtom.AppliedValues.FirstOrDefault(v => v.CssProperty == "background-color")?.CssValue ?? "white"; // TODO break when data not present
+    var styleMoleculeCssClasses = currentSelection.StyleMoleculeCssClassMapping.ContainsKey(targetViewStyle.StyleMoleculeId) ? string.Join(" ", currentSelection.StyleMoleculeCssClassMapping[targetViewStyle.StyleMoleculeId]) : "";
+}
+<div id="t@(targetViewStyle.StyleForLayoutId)" class="@styleMoleculeCssClasses">
+    @foreach (var layoutRow in targetView.PlacedLayoutRows.OrderBy(r => r.LayoutSortOrderKey))
+    {
+        @await Html.PartialAsync(nameof(LayoutRow), layoutRow)
+    }
+</div>

@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nusushi", "src\Nusushi\Nusushi.csproj", "{EBE70174-F1F1-47E8-96FA-859873482B71}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "California.Creator.Client", "src\California.Creator.Client\California.Creator.Client.csproj", "{9C5F81B2-A4E6-4C24-9050-280EADF5E642}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tokyo.Client", "src\Tokyo.Client\Tokyo.Client.csproj", "{4ABC7D84-8E7D-4594-BCE2-D2F57659F164}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "California.Creator.Service", "src\California.Creator.Service\California.Creator.Service.csproj", "{5433485A-09B1-4F28-90E5-5FB3FC3A161B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EB291446-B558-48CB-B4A8-E48BB0CB5332}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nusushi.Data", "src\Nusushi.Data\Nusushi.Data.csproj", "{842CFE48-383C-4BCF-9E0E-9214F0A59E38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tokyo.Service", "src\Tokyo.Service\Tokyo.Service.csproj", "{2BEE40A0-6A20-4BD4-9D43-371D44F48418}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBE70174-F1F1-47E8-96FA-859873482B71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBE70174-F1F1-47E8-96FA-859873482B71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBE70174-F1F1-47E8-96FA-859873482B71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBE70174-F1F1-47E8-96FA-859873482B71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C5F81B2-A4E6-4C24-9050-280EADF5E642}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C5F81B2-A4E6-4C24-9050-280EADF5E642}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C5F81B2-A4E6-4C24-9050-280EADF5E642}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C5F81B2-A4E6-4C24-9050-280EADF5E642}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ABC7D84-8E7D-4594-BCE2-D2F57659F164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ABC7D84-8E7D-4594-BCE2-D2F57659F164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ABC7D84-8E7D-4594-BCE2-D2F57659F164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ABC7D84-8E7D-4594-BCE2-D2F57659F164}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5433485A-09B1-4F28-90E5-5FB3FC3A161B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5433485A-09B1-4F28-90E5-5FB3FC3A161B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5433485A-09B1-4F28-90E5-5FB3FC3A161B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5433485A-09B1-4F28-90E5-5FB3FC3A161B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{842CFE48-383C-4BCF-9E0E-9214F0A59E38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{842CFE48-383C-4BCF-9E0E-9214F0A59E38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{842CFE48-383C-4BCF-9E0E-9214F0A59E38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{842CFE48-383C-4BCF-9E0E-9214F0A59E38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BEE40A0-6A20-4BD4-9D43-371D44F48418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BEE40A0-6A20-4BD4-9D43-371D44F48418}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BEE40A0-6A20-4BD4-9D43-371D44F48418}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BEE40A0-6A20-4BD4-9D43-371D44F48418}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A490F6D9-AF7D-4170-9F02-DC23BC260DEC}
+	EndGlobalSection
+EndGlobal

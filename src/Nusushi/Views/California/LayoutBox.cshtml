@@ -1,0 +1,91 @@
+﻿@using California.Creator.Service.Models.Core
+@using static Nusushi.Controllers.CaliforniaController
+@model LayoutBox
+@{
+    List<LayoutBase> orderedBoxesAndAtoms = Model.PlacedInBoxBoxes.Cast<LayoutBase>().Concat(Model.PlacedInBoxAtoms.Cast<LayoutBase>()).OrderBy(r => r.LayoutSortOrderKey).ToList();
+    var richTextTag = "<";
+    var richTextTagClose = "</";
+    if (Model.PlacedInBoxAtoms.Count > 0)
+    {
+        var targetTag = Model.PlacedInBoxAtoms.First().StyleMolecule.HtmlTag;
+        richTextTag += targetTag;
+        richTextTagClose += targetTag + ">";
+    }
+    else
+    {
+        richTextTag += "p";
+        richTextTagClose += "p" + ">";
+    }
+    var interactionIdString = (ViewData[InteractionLayoutIdsToken] as IEnumerable<int>).Contains(Model.LayoutBaseId) ? $"id=\"t{Model.LayoutBaseId}\"" : "";
+    var currentSelection = ViewData[CaliforniaSelectionOverlayToken] as CaliforniaSelectionOverlay;
+    var styleMoleculeCssClasses = currentSelection.StyleMoleculeCssClassMapping.ContainsKey(Model.StyleMolecule.StyleMoleculeId) ? string.Join(" ", currentSelection.StyleMoleculeCssClassMapping[Model.StyleMolecule.StyleMoleculeId]) : "";
+    richTextTag += $" {interactionIdString} class=\"{styleMoleculeCssClasses}\">";
+}
+@if (Model.SpecialLayoutBoxType == SpecialLayoutBoxType.Default)
+{
+    <div @Html.Raw(interactionIdString) class="@styleMoleculeCssClasses">
+        @foreach (var layoutBase in orderedBoxesAndAtoms)
+        {
+            if (layoutBase.LayoutType == LayoutType.Box)
+            {
+                @await Html.PartialAsync(nameof(LayoutBox), layoutBase as LayoutBox)
+            }
+            else if (layoutBase.LayoutType == LayoutType.Atom)
+            {
+                @await Html.PartialAsync(nameof(LayoutAtom), layoutBase as LayoutAtom)
+            }
+        }
+    </div>
+}
+else if (Model.SpecialLayoutBoxType == SpecialLayoutBoxType.UnsortedList)
+{
+    <ul @Html.Raw(interactionIdString) class="@styleMoleculeCssClasses">
+        @foreach (var layoutBase in orderedBoxesAndAtoms)
+        {
+            if (layoutBase.LayoutType == LayoutType.Box)
+            {
+                @await Html.PartialAsync(nameof(LayoutBox), layoutBase as LayoutBox)
+            }
+            else if (layoutBase.LayoutType == LayoutType.Atom)
+            {
+                @await Html.PartialAsync(nameof(LayoutAtom), layoutBase as LayoutAtom)
+            }
+        }
+    </ul>
+}
+else if (Model.SpecialLayoutBoxType == SpecialLayoutBoxType.SortedList)
+{
+    <ol @Html.Raw(interactionIdString) class="@styleMoleculeCssClasses">
+        @foreach (var layoutBase in orderedBoxesAndAtoms)
+        {
+            if (layoutBase.LayoutType == LayoutType.Box)
+            {
+                @await Html.PartialAsync(nameof(LayoutBox), layoutBase as LayoutBox)
+            }
+            else if (layoutBase.LayoutType == LayoutType.Atom)
+            {
+                @await Html.PartialAsync(nameof(LayoutAtom), layoutBase as LayoutAtom)
+            }
+        }
+    </ol>
+}
+else if (Model.SpecialLayoutBoxType == SpecialLayoutBoxType.ListItem)
+{
+    <li @Html.Raw(interactionIdString) class="@styleMoleculeCssClasses">
+        @foreach (var layoutBase in orderedBoxesAndAtoms)
+        {
+            if (layoutBase.LayoutType == LayoutType.Box)
+            {
+                @await Html.PartialAsync(nameof(LayoutBox), layoutBase as LayoutBox)
+            }
+            else if (layoutBase.LayoutType == LayoutType.Atom)
+            {
+                @await Html.PartialAsync(nameof(LayoutAtom), layoutBase as LayoutAtom)
+            }
+        }
+    </li>
+}else if(Model.SpecialLayoutBoxType == SpecialLayoutBoxType.RichText){@Html.Raw(richTextTag)@foreach(var layoutBase in orderedBoxesAndAtoms){if(layoutBase.LayoutType == LayoutType.Box){@await Html.PartialAsync(nameof(LayoutBox),layoutBase as LayoutBox)}else if(layoutBase.LayoutType == LayoutType.Atom){@await Html.PartialAsync(nameof(LayoutAtom),layoutBase as LayoutAtom)}}@Html.Raw(richTextTagClose)}
+else// html should be one line without unintended whitespace characters for client agent white space handling of rich text // TODO has to be different for manual rendering (no html raw for the tag) and TODO edge still throws an error (reason might actually be that richtext is embedded in richtext TODO display warning in this case
+{
+    throw new NotImplementedException();
+}

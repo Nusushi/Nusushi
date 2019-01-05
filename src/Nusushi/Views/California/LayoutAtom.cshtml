@@ -1,0 +1,22 @@
+﻿@using California.Creator.Service.Models.Core
+@using static Nusushi.Controllers.CaliforniaController
+@model LayoutAtom
+@{
+    var content = Model.HostedContentAtom;
+    // TODO output id only when necessary (i.e. only when interaction is set)
+    var isLink = content.ContentAtomType == ContentAtomType.Link;
+    var isMail = isLink && content.Url.Contains("@"); // TODO dirty hack
+    var linkHref = $"href=\"{(isMail ? "mailto:" + content.Url : content.Url)}\""; // TODO dirty hack
+    var atomHtmlTag = Model.StyleMolecule.HtmlTag;
+    if (Model.PlacedAtomInBox.SpecialLayoutBoxType == SpecialLayoutBoxType.RichText)
+    {
+        atomHtmlTag = "span";
+    }
+    // html should be one line without unintended whitespace characters for client agent white space handling of rich text
+    var isInteractionSourceOrTarget = (ViewData[InteractionLayoutIdsToken] as IEnumerable<int>).Contains(Model.LayoutBaseId);
+    var interactionIdString = isInteractionSourceOrTarget ? $"id=\"t{Model.LayoutBaseId}\"" : "";
+    var interactionCallbackString = isInteractionSourceOrTarget ? $"onclick=\"{{tar=&quot;t{Model.LayoutBaseId}&quot;;ifn();}}\"" : "";
+    var currentSelection = ViewData[CaliforniaSelectionOverlayToken] as CaliforniaSelectionOverlay;
+    var styleMoleculeCssClasses = currentSelection.StyleMoleculeCssClassMapping.ContainsKey(Model.StyleMolecule.StyleMoleculeId) ? string.Join(" ", currentSelection.StyleMoleculeCssClassMapping[Model.StyleMolecule.StyleMoleculeId]) : "";
+}
+<@(Html.Raw(atomHtmlTag)) @(isLink ? Html.Raw(linkHref) : null) class="@styleMoleculeCssClasses" @Html.Raw(interactionIdString) @Html.Raw(interactionCallbackString)>@if (content.ContentAtomType == ContentAtomType.Text){@content.TextContent}else if (content.ContentAtomType == ContentAtomType.Link){@content.Url}</@(Html.Raw(atomHtmlTag))>

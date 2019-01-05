@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    // TODO script integrity hash
+}
+@section Styles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/assets/californiaclient.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/assets/californiaclient.css" />
+    </environment>
+    <style id="california-styles"></style><!-- used by californiaclient.js -->
+}
+
+@RenderBody()
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+    <environment include="Development">
+        <script src="~/assets/californiaclient.js"
+                asp-append-version="true">
+        </script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/assets/californiaclient.js"
+                asp-append-version="true">
+        </script>
+    </environment>
+}

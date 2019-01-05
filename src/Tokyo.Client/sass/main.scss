@@ -1,0 +1,113 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../third_party/source-sans-pro-2.020R-ro-1.075R-it/EOT/SourceSansPro-Regular.eot?v=2.020');
+    src: url('../third_party/source-sans-pro-2.020R-ro-1.075R-it/EOT/SourceSansPro-Regular.eot?#iefix&v=2.020') format('embedded-opentype'), url('../third_party/source-sans-pro-2.020R-ro-1.075R-it/WOFF2/OTF/SourceSansPro-Regular.otf.woff2?v=2.020') format('woff2'), url('../third_party/source-sans-pro-2.020R-ro-1.075R-it/WOFF/TTF/SourceSansPro-Regular.ttf.woff?v=2.020') format('woff'), url('../third_party/source-sans-pro-2.020R-ro-1.075R-it/TTF/SourceSansPro-Regular.ttf?v=2.020') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../third_party/source-sans-pro-2.020R-ro-1.075R-it/EOT/SourceSansPro-It.eot?v=2.020');
+    src: url('../third_party/source-sans-pro-2.020R-ro-1.075R-it/EOT/SourceSansPro-It.eot?#iefix&v=2.020') format('embedded-opentype'), url('../third_party/source-sans-pro-2.020R-ro-1.075R-it/WOFF2/OTF/SourceSansPro-It.otf.woff2?v=2.020') format('woff2'), url('../third_party/source-sans-pro-2.020R-ro-1.075R-it/WOFF/TTF/SourceSansPro-It.ttf.woff?v=2.020') format('woff'), url('../third_party/source-sans-pro-2.020R-ro-1.075R-it/TTF/SourceSansPro-It.ttf?v=2.020') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+body {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    max-height: 100%;
+    height: 100%;
+    color: rgb(14, 30, 86);
+}
+
+html {
+    height: 100%;
+    max-height: 100%;
+    font-family: "Source Sans Pro, sans-serif";
+    background-color: white;
+}
+
+footer {
+    padding-left: 15px;
+    color: rgb(42, 178, 191);
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+.trackerfeaturelist {
+    padding-left: 0;
+}
+
+.trackerfeaturelist li {
+    float: left;
+    padding-right: 5px;
+    list-style-type: none;
+}
+
+.navbar-brand.index-page {
+    color: rgb(42, 178, 191);
+    font-weight: bold;
+}
+
+a, a:hover {
+    color: rgb(42, 178, 191);
+}
+
+.btn:hover {
+    color: #404040;
+    background-color: rgb(42, 178, 191);
+}
+
+.tracker-timeline::-webkit-scrollbar {
+    display: none;
+}
+
+/// force scrollbar visibility on ipad
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 4px;//7px;
+    height: 4px;//7px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 2px;//4px;
+    background-color: rgb(14, 30, 86);// rgba(0,0,0,.5);
+    box-shadow: 0 0 1px rgba(255,255,255,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+///

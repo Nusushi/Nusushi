@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url(/assets/ac064e4ccb70dc3a2b5bd2d68b86428b.eot);
+  src: url(/assets/ac064e4ccb70dc3a2b5bd2d68b86428b.eot?#iefix&v=2.020) format("embedded-opentype"), url(/assets/0448fda3606e6dc571f763223e78861a.woff2) format("woff2"), url(/assets/090c51d750041a6da7041ad2f8510cb5.woff) format("woff"), url(/assets/d165cf1a72ee7db500ecfc9d7672a834.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url(/assets/804a5a72877fa3e658baefb5ecacf88c.eot);
+  src: url(/assets/804a5a72877fa3e658baefb5ecacf88c.eot?#iefix&v=2.020) format("embedded-opentype"), url(/assets/dc350a1320c8c455fce22a68938ce05b.woff2) format("woff2"), url(/assets/65972f6e425bb890dd10c46c7f5e0734.woff) format("woff"), url(/assets/61403c3297a48cfeaf13071038a555cd.ttf) format("truetype");
+  font-weight: normal;
+  font-style: italic; }
+
+body {
+  background-color: rgba(242, 242, 242, 0.7);
+  margin: 0;
+  display: flex; }
+
+@-ms-viewport {
+  width: device-width; }
+
+html {
+  box-sizing: border-box;
+  -ms-overflow-style: scrollbar; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }

@@ -1,0 +1,16 @@
+﻿@model Nusushi.Models.IndexViewModels.IndexViewModel
+@using Tokyo.Service.Models
+@using California.Creator.Service.Models
+@{
+    ViewData["Title"] = "Nusushi Index";
+}
+
+<div>
+    <h1>@ViewData["Title"]</h1>
+    <a role="link" asp-route="@CaliforniaRoutes.CaliforniaBrowserRoute">CALIFORNIA</a>
+    <a role="link" asp-route="@TrackerRoutes.TrackerBrowserRoute">TOKYO</a>
+    @foreach (var accData in Model.NusushiAccounts.OrderBy(acc => acc.NusushiUserId).OrderByDescending(acc => acc.TimeStampCount).OrderByDescending(acc => /*rank*/ 0 + (String.IsNullOrEmpty(acc.CaliforniaUserId) ? 0 : 1) + (String.IsNullOrEmpty(acc.TokyoUserId) ? 0 : 1)))
+    {
+        @await Html.PartialAsync(nameof(NusushiAccountData), accData)
+    }
+</div>
