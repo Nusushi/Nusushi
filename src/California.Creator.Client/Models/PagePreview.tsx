@@ -1168,7 +1168,7 @@ export class PagePreview {
         currentPagePreview.viewModel.tempOriginalContent = currentPagePreview.viewModel.tempContent;
         currentPagePreview.viewModel.editedLayoutAtomId = layoutAtomId;
     };
-    
+    // copied from https://stackoverflow.com/questions/9552626/how-to-only-copy-an-elements-styles-to-another-element
     private getStyleObject = (targetElement: HTMLElement): { [key: string]: string } => {
         var dom = $(targetElement).get(0);
         var style;
